@@ -1,7 +1,8 @@
-# print("Welcome to Chase bank.")
-# print("Have a nice day!")
+# # print("Welcome to Chase bank.")
+# # print("Have a nice day!")
 
 balance = 10000
+
 def view_balance(balance):
   print('Your current balance is {}'.format(balance)) 
 
@@ -11,18 +12,26 @@ def withdraw(balance):
   if amount > balance:
     print('Insufficient funds')
   elif amount == balance:
-    print('Thats all yr dang money though!')
+    print('Thats all yr dang money though!\n')
   else:
-    print('Successfully withdrew {} dollars'.format(amount))
-    print('Your remaining balance is {}'.format(balance - amount))
+    print('Successfully withdrew {} dollars\n'.format(amount))
+    print('Your remaining balance is {}\n'.format(balance - amount))
     return balance - amount
 
 def deposit(balance):
   amount = input('How much money would you like to deposit?\n')
   amount = int(amount)
-  print('Successfully deposited {} dollars '.format(amount))
-  print('Your current balance is {} dollars '.format(balance + amount))
+  print('Successfully deposited {} dollars \n'.format(amount))
+  print('Your current balance is {} dollars \n'.format(balance + amount))
   return balance + amount
+
+
+def again(balance):
+  done = input('Are you done? y/n \n')
+  if 'y' in done:
+    print('Thank you!')
+  elif 'n' in done:
+    banking(balance)
 
 
 def banking(balance):
@@ -36,5 +45,6 @@ def banking(balance):
     balance = deposit(balance)
   else:
     print('command not found, please press w, v, or d')
+  again(balance)
 
 banking(balance)
